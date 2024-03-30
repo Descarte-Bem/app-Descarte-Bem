@@ -1,4 +1,5 @@
-import 'package:decarte_bem/ui/widgets/login_button.dart';
+import 'package:decarte_bem/ui/widgets/apple_login_button.dart';
+import 'package:decarte_bem/ui/widgets/google_login_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -42,7 +43,14 @@ class _LoginPageState extends State<LoginPage> {
                   return Container();
                 } else {
                   return const Center(
-                    child: LoginButton(),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            GoogleLoginButton(),
+                            SizedBox(height: 8,),
+                            AppleLoginButton(),
+                          ]
+                      )
                   );
                 }
               },

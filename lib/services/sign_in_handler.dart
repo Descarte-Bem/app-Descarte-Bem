@@ -75,8 +75,8 @@ class SignInHandler {
               AppleIDAuthorizationScopes.fullName,
             ],
             webAuthenticationOptions: WebAuthenticationOptions(
-                clientId: "br.uff.sampleforscienceid",
-                redirectUri: Uri.parse("https://sampletest-4273e.firebaseapp.com/__/auth/handler")
+                clientId: "br.uff.descartabemid",
+                redirectUri: Uri.parse("https://descarte-b78a4.firebaseapp.com/__/auth/handler")
             ),
             nonce: nonce
         );
