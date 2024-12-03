@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'circular_avatar_button.dart';
@@ -37,8 +39,21 @@ class CustomAppBar extends AppBar{
   @override
   bool? get centerTitle => true;
   @override
-  List<Widget>? get actions => const [
-    CircularAvatarButton()
+  List<Widget>? get actions => [
+    IconButton(
+      icon: const Icon(Icons.add),
+      onPressed: () async {
+        debugPrint("CRIANDO...");
+        DocumentReference docRef = await FirebaseFirestore.instance.collection('farmacias').add({
+          "nome": "Droga Raia",
+          "cep": "24220021",
+          "numero": "56",
+          "localizacao": const GeoPoint(-22.903624,-43.1164579)
+        });
+        debugPrint("Doc criado: ${docRef.id}");
+      },
+    ),
+    const CircularAvatarButton()
   ];
 
 
